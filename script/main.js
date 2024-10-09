@@ -1,3 +1,41 @@
+function lunbotu(){
+  var $navArrows = $( '#nav-arrows' ).hide(),
+      $shadow = $( '#shadow' ).hide(),
+      slicebox = $( '#sb-slider' ).slicebox( {
+        onReady : function() {
+          $navArrows.show();
+          $shadow.show();
+          // 添加自动轮播功能
+          slicebox.next(); // 立即开始轮播
+          setInterval(function() {
+            slicebox.next();
+          }, 5000); // 每3秒轮播一次
+        },
+        orientation : 'r',
+        cuboidsRandom : true,
+        disperseFactor : 30
+      }),
+      init = function() {
+        initEvents();
+      },
+      initEvents = function() {
+        // add navigation events
+        $navArrows.children( ':first' ).on( 'click', function() {
+          slicebox.next();
+          return false;
+        });
+        $navArrows.children( ':last' ).on( 'click', function() {
+          slicebox.previous();
+          return false;
+        });
+      };
+      return { init : init };
+}
+
+
+
+
+
 // Import the data to customize and insert them into page
 const fetchData = () => {
   fetch("customize.json")
@@ -55,9 +93,6 @@ playPauseButton.addEventListener('click', () => {
 })
 
 
-
-
-
 // Animation Timeline
 const animationTimeline = () => {
   // Spit chars that needs to be animated individually
@@ -92,6 +127,23 @@ const animationTimeline = () => {
     .to(".container", 0.1, {
       visibility: "visible"
     })
+    
+	.call(lunbotu, [], 100)
+	.from(".zcrthree4", 100, {
+	  opacity: 1,
+	  y: 10
+	  // scale: 0.7
+	})
+	.to(
+	  ".zcrthree4",
+	  0.7,
+	  {
+	    opacity: 0,
+	    y: 10
+	  },
+	  "+=2"
+	)
+	
     .from(".one", 0.7, {
       opacity: 0,
       y: 10
@@ -125,6 +177,62 @@ const animationTimeline = () => {
     })
     .to(
       ".three",
+      0.7,
+      {
+        opacity: 0,
+        y: 10
+      },
+      "+=2"
+    )
+    .from(".zcrthree2", 0.7, {
+      opacity: 0,
+      y: 10
+      // scale: 0.7
+    })
+    .to(
+      ".zcrthree2",
+      0.7,
+      {
+        opacity: 0,
+        y: 10
+      },
+      "+=2"
+    )
+    .from(".zcrthree3", 1.7, {
+      opacity: 0,
+      y: 10
+      // scale: 0.7
+    })
+    .to(
+      ".zcrthree3",
+      0.7,
+      {
+        opacity: 0,
+        y: 10
+      },
+      "+=2"
+    )
+    .staggerFromTo(
+      ".baloons img",
+      2.2,
+      {
+        opacity: 0.9,
+        y: 1400
+      },
+      {
+        opacity: 1,
+        y: -1000
+      },
+      0.2
+    )
+    .call(lunbotu, [], 100)
+    .from(".zcrthree4", 100, {
+      opacity: 1,
+      y: 10
+      // scale: 0.7
+    })
+    .to(
+      ".zcrthree4",
       0.7,
       {
         opacity: 0,
@@ -229,6 +337,7 @@ const animationTimeline = () => {
       0.2,
       "+=1"
     )
+
     .staggerFromTo(
       ".baloons img",
       2.5,
