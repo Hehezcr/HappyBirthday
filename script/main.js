@@ -9,7 +9,7 @@ function lunbotu(){
           slicebox.next(); // 立即开始轮播
           setInterval(function() {
             slicebox.next();
-          }, 5000); // 每3秒轮播一次
+          }, 6500); // 每3秒轮播一次
         },
         orientation : 'r',
         cuboidsRandom : true,
@@ -128,22 +128,6 @@ const animationTimeline = () => {
       visibility: "visible"
     })
     
-	.call(lunbotu, [], 100)
-	.from(".zcrthree4", 100, {
-	  opacity: 1,
-	  y: 10
-	  // scale: 0.7
-	})
-	.to(
-	  ".zcrthree4",
-	  0.7,
-	  {
-	    opacity: 0,
-	    y: 10
-	  },
-	  "+=2"
-	)
-	
     .from(".one", 0.7, {
       opacity: 0,
       y: 10
@@ -225,21 +209,21 @@ const animationTimeline = () => {
       },
       0.2
     )
-    .call(lunbotu, [], 100)
-    .from(".zcrthree4", 100, {
-      opacity: 1,
-      y: 10
-      // scale: 0.7
-    })
-    .to(
-      ".zcrthree4",
-      0.7,
-      {
-        opacity: 0,
-        y: 10
-      },
-      "+=2"
-    )
+	.call(lunbotu, [], 60)
+	.from(".zcrthree4", 60, {
+	  opacity: 1,
+	  y: 10
+	  // scale: 0.7
+	})
+	.to(
+	  ".zcrthree4",
+	  0.7,
+	  {
+	    opacity: 0,
+	    y: 10
+	  },
+	  "+=2"
+	)
     .from(".four", 0.7, {
       scale: 0.2,
       opacity: 0
@@ -250,7 +234,7 @@ const animationTimeline = () => {
     })
     .staggerTo(
       ".hbd-chatbox span",
-      0.5,
+      1,
       {
         visibility: "visible"
       },
@@ -338,19 +322,6 @@ const animationTimeline = () => {
       "+=1"
     )
 
-    .staggerFromTo(
-      ".baloons img",
-      2.5,
-      {
-        opacity: 0.9,
-        y: 1400
-      },
-      {
-        opacity: 1,
-        y: -1000
-      },
-      0.2
-    )
     .from(
       ".lydia-dp",
       0.5,
