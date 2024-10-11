@@ -209,21 +209,20 @@ const animationTimeline = () => {
       },
       0.2
     )
-	.call(lunbotu, [], 60)
-	.from(".zcrthree4", 60, {
-	  opacity: 1,
-	  y: 10
-	  // scale: 0.7
-	})
-	.to(
-	  ".zcrthree4",
-	  0.7,
-	  {
-	    opacity: 0,
-	    y: 10
-	  },
-	  "+=2"
-	)
+    .call(lunbotu, [], 60)
+    .from(".zcrthree4", 60, {
+      opacity: 1,
+      y: 10
+    })
+    .to(
+      ".zcrthree4",
+      0.7,
+      {
+        opacity: 0,
+        y: 10
+      },
+      "+=2"
+      )
     .from(".four", 0.7, {
       scale: 0.2,
       opacity: 0
